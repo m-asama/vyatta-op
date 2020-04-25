@@ -19,6 +19,11 @@
 # 
 # **** End License ****
 
+groups | grep vyattacfg > /dev/null
+if [ $? -ne 0 ]; then
+  return 0
+fi
+
 test -z "$_vyatta_less_options" && \
     declare -r _vyatta_less_options="\
 	--QUIT-AT-EOF\
@@ -104,14 +109,16 @@ _vyatta_op_default_expand ()
   local wc=${#COMP_WORDS[@]}
   if [[ "${COMP_WORDS[0]}" =~ "/" ]]; then
     # if we are looking for a directory on the first completion then do directory completions
-    _filedir_xspec
+#    _filedir_xspec
+    true # XXX:
   elif (( wc < 2 )) ||
      [[ $COMP_CWORD -eq 0 ]] ||
      [[ $1 == $2 ]]; then
     _vyatta_op_expand "$@"
   else
     # after the first word => cannot be vyatta command so use original default
-    _filedir_xspec
+#    _filedir_xspec
+    true # XXX:
   fi
 }
 

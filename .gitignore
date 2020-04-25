@@ -19,11 +19,13 @@ libtool
 /debian/vyatta-op.postrm
 /debian/vyatta-op.substvars
 /debian/vyatta-op.debhelper.log
+/debian/.debhelper/
+/debian/changelog.*
 /etc/default/vyatta
 /INSTALL
 /Makefile.in
 /Makefile
 /etc/shell/level/users/allowed-op
-
+/generated-templates/
 /src/render_xml
 
