@@ -31,12 +31,12 @@ run: (
 	    # interface is up, lets bring it down...
             echo "Bringing interface $IFNAME down..."
 	    echo "`date`: User $USER stopping PPP daemon for $IFNAME by clear command" >> $LOGFILE
-            sudo /sbin/poff $IFNAME
+            sudo /usr/bin/poff $IFNAME
         elif [ ! -z "`ps -C pppd -f | grep $IFNAME `" ]; then
             # Connection is in the process of being established
 	    echo "Stopping connection establishment for interface ${IFNAME}..."
 	    echo "`date`: User $USER stopping PPP daemon for $IFNAME by clear command" >> $LOGFILE
-            sudo /sbin/poff $IFNAME
+            sudo /usr/bin/poff $IFNAME
 	fi
 	
 	# now PPP layer should be down
